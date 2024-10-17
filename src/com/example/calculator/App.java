@@ -31,7 +31,7 @@ public class App {
                     continue;
                 }
                 else
-                    result = num1 / num2;
+                    result = (double)num1 / num2;
             }
             System.out.println("결과: " + result);
 
