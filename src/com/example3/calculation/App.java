@@ -1,7 +1,4 @@
 package com.example3.calculation;
-
-import com.example2.calculation.Calculator;
-
 import java.util.List;
 import java.util.Scanner;
 
