@@ -1,49 +1,35 @@
-//package com.example3.calculation;
-//
-//import java.util.Scanner;
-//
-//public class App {
-//    public static void main(String[] args) {
-//        Scanner s = new Scanner(System.in);
-//
-//        Calculator cal = new Calculator();  //Calculator 클래스 안의 메소드를 사용하기 위해 인스턴스화한다.
-//
-//        int result = 0;
-//        while(true){
-//            System.out.print("첫 번째 숫자를 입력하세요: ");
-//            int num1 = s.nextInt();
-//            System.out.print("사칙연산 기호를 입력하세요: ");
-//            char operator = s.next().charAt(0);
-//            System.out.print("두 번째 숫자를 입력하세요: ");
-//            int num2 = s.nextInt();
-//
-//            cal.setNum1(num1);  //Setter메소드를 통해 Calculator클래스의 데이터를 수정한다.
-//            cal.setNum2(num2);
-//            cal.setOperator(operator);
-//
-//
-//            try{
-//                result = cal.calculator(cal.getOperator(), cal.getNum1(), cal.getNum2());   //Calculator클래스의 위에서 수정한 3개의 데이터를 Getter로 가져와서 바로 다시 Calculator클래스의 calculator 메소드를 호출한다.
-//            }catch(RuntimeException e){ //예외가 발생하면
-//                System.out.println(e.getMessage()); //메세지출력 후 처음으로 돌아간다.
-//                continue;
-//            }
-//            System.out.println("결과 : " + result);
-//            System.out.println("저장된 데이터를 보여드릴게요.");
-//            System.out.println(cal.getQueue());
-//
-//            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-//            String comment = s.next();
-//            if(comment.equals("exit"))
-//                break;
-//
-//            System.out.println("가장 먼저 저장된 데이터를 삭제하시겠습니까? (remove 입력 시 삭제)");
-//            String comment2 = s.next();
-//            if(comment2.equals("remove")){
-//                cal.removeResult();
-//                System.out.println("삭제 후 저장된 데이터를 보여드릴게요.");
-//                System.out.println(cal.getQueue());	//오른쪽부터 하나씩 꺼낸다.
-//            }
-//        }
-//    }
-//}
+package com.example3.calculation;
+
+import com.example2.calculation.Calculator;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        int num1 = s.nextInt();
+        char operator = s.next().charAt(0);
+        int num2 = s.nextInt();
+
+        ArithmeticCalculator<Integer> calculator = new ArithmeticCalculator<>();
+        double operator1 = calculator.operator(num1,num2,operator);
+        calculator.setResultList(operator1);
+        double operator2 = calculator.operator(2,5,operator);
+        calculator.setResultList(operator2);
+        double operator3 = calculator.operator(5,3,operator);
+        calculator.setResultList(operator3);
+
+        List<Double> result1 = calculator.getResultList();
+        for(Double num3 : result1){
+            System.out.println(num3);
+        }
+
+        System.out.println("=======람다적용========");
+        List<Double> goeList = calculator.getGoeList(10.0);
+        for(Double num4 : goeList){
+            System.out.println(num4);
+        }
+    }
+}
