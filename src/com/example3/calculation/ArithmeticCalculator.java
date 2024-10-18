@@ -11,7 +11,7 @@ public class ArithmeticCalculator<T extends Number> {   //제네릭을 사용하
     public double operator(T num1, T num2, char operator){
         OperatorType type = OperatorType.fromOperator(operator);    //입력받은 연산자의 타입을 fromOperator로 확인하고 그 리턴값을 type에 저장한다.
 
-        return switch(type){    //type이 각각의 케이스에 해당하면 리턴한다.
+        return switch(type){    //type이 각 케이스에 해당하면 리턴한다.
             case ADD -> num1.doubleValue() + num2.doubleValue();
             case MINUS -> num1.doubleValue() - num2.doubleValue();
             case MULTIPLICATION -> num1.doubleValue() * num2.doubleValue();

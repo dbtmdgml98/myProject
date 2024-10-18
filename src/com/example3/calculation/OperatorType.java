@@ -20,6 +20,6 @@ public enum OperatorType {
             }
         }
 
-        throw new IllegalArgumentException("해당 연산자가 없습니다." + operator);
+        throw new IllegalArgumentException("해당 연산자가 없습니다!" + operator);
     }
 }

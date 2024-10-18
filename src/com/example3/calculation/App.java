@@ -26,7 +26,7 @@ public class App {
             System.out.println(num3);
         }
 
-        System.out.println("=======람다적용========");
+        System.out.println("========람다적용========");
         List<Double> goeList = calculator.getGoeList(10.0);
         for(Double num4 : goeList){
             System.out.println(num4);
