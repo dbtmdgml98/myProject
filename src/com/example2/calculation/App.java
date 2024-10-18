@@ -11,7 +11,7 @@ public class App {
         int num1;   //변수 선언은 while문 안에서 계속 돌 필요가 없다.
         char operator;
         int num2;
-        double result = 0.0;
+        double result;
 
         while(true){
             System.out.print("첫 번째 숫자를 입력하세요: ");
