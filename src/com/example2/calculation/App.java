@@ -8,14 +8,18 @@ public class App {
 
         Calculator cal = new Calculator();  //Calculator 클래스 안의 메소드를 사용하기 위해 인스턴스화한다.
 
-        int result = 0;
+        int num1;   //변수 선언은 while문 안에서 계속 돌 필요가 없다.
+        char operator;
+        int num2;
+        double result = 0.0;
+
         while(true){
             System.out.print("첫 번째 숫자를 입력하세요: ");
-            int num1 = s.nextInt();
+            num1 = s.nextInt();
             System.out.print("사칙연산 기호를 입력하세요: ");
-            char operator = s.next().charAt(0);
+            operator = s.next().charAt(0);
             System.out.print("두 번째 숫자를 입력하세요: ");
-            int num2 = s.nextInt();
+            num2 = s.nextInt();
 
             cal.setNum1(num1);  //Setter메소드를 통해 Calculator클래스의 데이터를 수정한다.
             cal.setNum2(num2);
@@ -34,9 +38,9 @@ public class App {
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String comment = s.next();
-            if(comment.equals("exit"))
+            if("exit".equals(comment)) {  //일반적으로 equals 의 경우 NullPointerException 으로 인해 상수 값이 앞으로 오도록 작성하는 것이 좋다!
                 break;
-
+            }
             System.out.println("가장 먼저 저장된 데이터를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String comment2 = s.next();
             if(comment2.equals("remove")){

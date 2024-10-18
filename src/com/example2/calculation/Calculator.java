@@ -5,11 +5,11 @@ import java.util.Queue;
 
 public class Calculator {
     /* 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 */
-    private int result;
+    private double result;
     private  int num1;
     private  int num2;
     private char operator;
-    private Queue<Integer> queue = new LinkedList<>();
+    private final Queue<Double> queue = new LinkedList<>();
 
     public int getNum1(){
         return num1;
@@ -33,7 +33,7 @@ public class Calculator {
         this.operator = operator;
     }
 
-    public Queue<Integer> getQueue(){
+    public Queue<Double> getQueue(){
         return this.queue;
     }
 
@@ -41,9 +41,8 @@ public class Calculator {
         this.queue.poll();  //선입선출 특징이 있는 큐를 이용하겠다.
     }
 
-    public int calculator(char operator, int num1, int num2 ){
+    public double calculator(char operator, int num1, int num2 ){
             result = 0;
-            int k = 0;
 
             if(operator=='+'){
                 result = num1 + num2;
@@ -56,7 +55,7 @@ public class Calculator {
                     throw new RuntimeException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                 }
                 else
-                    result = num1 / num2;
+                    result = (double)num1 / num2;
             }
             this.queue.add(result); //큐에 추가한다.
             return result;

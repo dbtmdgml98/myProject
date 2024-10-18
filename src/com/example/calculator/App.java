@@ -37,8 +37,9 @@ public class App {
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료/계속 계산하려면 아무 문자 입력 )");
             String comment = s.next();
-            if(comment.equals("exit"))
+            if(comment.equals("exit")) {
                 break;
+            }
         }
     }
 }
